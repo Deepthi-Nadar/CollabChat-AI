@@ -19,4 +19,4 @@ services:
       - key: OPENAI_API_KEY
         sync: false
       - key: ALLOWED_ORIGINS
-        sync: false
+        value: https://collab-chat-ai.vercel.app,http://127.0.0.1:5173,http://localhost:5173
