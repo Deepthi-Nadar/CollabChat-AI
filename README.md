@@ -1,8 +1,10 @@
-# CollabChat AI
+# CollabChat AI - https://collab-chat-ai.vercel.app/
 
 CollabChat AI is a full-stack real-time chat application with a shared AI workspace. Users can register, log in, search for other users, chat one-to-one over WebSockets, see typing indicators, and collaborate with an AI assistant inside a shared panel using `@ai`.
 
 The AI panel can generate code, explanations, project files, and other responses. When the AI returns named code blocks such as `index.html`, `style.css`, or `server.js`, the frontend shows separate download buttons for each file.
+
+<img width="1860" height="926" alt="image" src="https://github.com/user-attachments/assets/e72c7d89-cd46-4be0-a653-88503f59ac9a" />
 
 ## Features
 
