@@ -77,9 +77,11 @@ export default function App() {
   const [messages, setMessages] = useState([]);
   const [messageText, setMessageText] = useState("");
   const [chatStatus, setChatStatus] = useState("");
+  const [chatConnectionStatus, setChatConnectionStatus] = useState("");
   const [aiEvents, setAiEvents] = useState([]);
   const [aiPrompt, setAiPrompt] = useState("");
   const [aiStatus, setAiStatus] = useState("");
+  const [aiConnectionStatus, setAiConnectionStatus] = useState("");
   const [dark, setDark] = useState(localStorage.getItem("theme") === "dark");
   const chatSocket = useRef(null);
   const aiSocket = useRef(null);
@@ -121,6 +123,10 @@ export default function App() {
     chatSocket.current?.close();
     const ws = new WebSocket(`${WS_URL}/ws/chat/${activeUser.id}?token=${encodeURIComponent(token)}`);
     chatSocket.current = ws;
+    setChatConnectionStatus("Connecting to chat...");
+    ws.onopen = () => setChatConnectionStatus("Chat connected");
+    ws.onerror = () => setChatConnectionStatus("Chat connection failed");
+    ws.onclose = () => setChatConnectionStatus("Chat disconnected");
     ws.onmessage = (event) => {
       const data = JSON.parse(event.data);
       if (data.type === "chat_message") {
@@ -146,6 +152,10 @@ export default function App() {
     aiSocket.current?.close();
     const ws = new WebSocket(`${WS_URL}/ws/ai/${currentRoomId}?token=${encodeURIComponent(token)}`);
     aiSocket.current = ws;
+    setAiConnectionStatus("Connecting to AI...");
+    ws.onopen = () => setAiConnectionStatus("AI connected");
+    ws.onerror = () => setAiConnectionStatus("AI connection failed");
+    ws.onclose = () => setAiConnectionStatus("AI disconnected");
     ws.onmessage = (event) => {
       const data = JSON.parse(event.data);
       if (data.type === "ai_typing") {
@@ -322,7 +332,7 @@ export default function App() {
               </div>
               <div>
                 <h2>{activeUser.username}</h2>
-                <p>{chatStatus || aiStatus || "Messages sync instantly"}</p>
+                <p>{chatStatus || aiStatus || chatConnectionStatus || "Messages sync instantly"}</p>
               </div>
             </header>
 
@@ -369,7 +379,7 @@ export default function App() {
           </div>
           <div>
             <h2>Shared AI</h2>
-            <p>{currentRoomId ? `Room ${currentRoomId}` : "Open a chat first"}</p>
+            <p>{currentRoomId ? aiConnectionStatus || `Room ${currentRoomId}` : "Open a chat first"}</p>
           </div>
         </header>
 
