@@ -6,6 +6,7 @@ The AI panel can generate code, explanations, project files, and other responses
 
 <img width="1867" height="927" alt="image" src="https://github.com/user-attachments/assets/09b8fe83-42bd-41cd-9af2-f836771caa11" />
 
+
 <img width="1860" height="926" alt="image" src="https://github.com/user-attachments/assets/e72c7d89-cd46-4be0-a653-88503f59ac9a" />
 
 ## Features
