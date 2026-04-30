@@ -1,0 +1,82 @@
+collabchat-ai/
+│
+├── backend/
+│   ├── app/
+│   │   ├── main.py              # Entry point
+│   │   │
+│   │   ├── core/               # Config & security
+│   │   │   ├── config.py
+│   │   │   ├── security.py     # JWT, password hashing
+│   │   │
+│   │   ├── db/
+│   │   │   ├── database.py     # DB connection
+│   │   │   ├── models.py       # Tables (users, messages)
+│   │   │   ├── schemas.py      # Pydantic schemas
+│   │   │
+│   │   ├── api/                # Routes
+│   │   │   ├── auth.py         # login/register
+│   │   │   ├── users.py        # search users
+│   │   │   ├── messages.py     # chat history
+│   │   │   ├── ai.py           # AI endpoint
+│   │   │
+│   │   ├── websockets/
+│   │   │   ├── chat_ws.py      # chat socket
+│   │   │   ├── ai_ws.py        # AI collaboration socket
+│   │   │
+│   │   ├── services/           # Business logic
+│   │   │   ├── auth_service.py
+│   │   │   ├── chat_service.py
+│   │   │   ├── ai_service.py
+│   │   │
+│   │   ├── utils/
+│   │   │   ├── helpers.py
+│   │   │
+│   │   └── __init__.py
+│   │
+│   ├── requirements.txt
+│   └── .env
+│
+├── frontend/
+│   ├── src/
+│   │   ├── components/
+│   │   │   ├── Sidebar.jsx
+│   │   │   ├── ChatWindow.jsx
+│   │   │   ├── AIPanel.jsx
+│   │   │   ├── Navbar.jsx
+│   │   │
+│   │   ├── pages/
+│   │   │   ├── Login.jsx
+│   │   │   ├── Register.jsx
+│   │   │   ├── Home.jsx
+│   │   │
+│   │   ├── services/
+│   │   │   ├── api.js          # axios config
+│   │   │   ├── socket.js       # websocket logic
+│   │   │
+│   │   ├── context/
+│   │   │   ├── AuthContext.jsx
+│   │   │
+│   │   ├── App.jsx
+│   │   ├── main.jsx
+│   │
+│   ├── index.html
+│   ├── package.json
+│
+├── README.md
+
+
+
+	
+Response body
+Download
+{
+  "access_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjlmMjZmNWJiNzU5ZGE3MWFkMzM4MjI2IiwidXNlcm5hbWUiOiJEZWVwdGhpIiwiZXhwIjoxNzc3NTAwODQ3fQ.QZ25Gxsx6px4AAvfvqqv9nlTrgZos_lxAFdfTl8Ll08",
+  "token_type": "bearer"
+}
+
+
+Response body
+{
+  "access_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjlmMjg1NDhkZDY5YWNlOWMwNDAxYmM5IiwidXNlcm5hbWUiOiJSYWh1bCIsImV4cCI6MTc3NzUwNTEzMX0.cq3EPjIabI35gtzGsCfn0y0JQSyTPku2MDR5TBmGdxg",
+  "token_type": "bearer"
+}
