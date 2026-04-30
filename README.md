@@ -156,21 +156,6 @@ VITE_API_URL=http://127.0.0.1:8000
 VITE_WS_URL=ws://127.0.0.1:8000
 ```
 
-## Deployment
-
-Recommended deployment:
-
-- Backend: Render
-- Frontend: Vercel
-
-See [DEPLOYMENT.md](./DEPLOYMENT.md) for complete deployment instructions.
-
-## Security Notes
-
-- Do not commit `backend/.env`.
-- Do not put real API keys in `.env.example`.
-- Rotate any API key that was accidentally committed or pasted publicly.
-- Set `ALLOWED_ORIGINS` to your deployed frontend URL in production.
 
 ## License
 
